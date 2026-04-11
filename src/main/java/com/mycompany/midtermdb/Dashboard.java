@@ -8,6 +8,3 @@ package com.mycompany.midtermdb;
  *
  * @author LENOVO
  */
-public class Dashboard {
-    
-}

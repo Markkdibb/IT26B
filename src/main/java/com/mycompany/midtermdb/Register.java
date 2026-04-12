@@ -20,6 +20,11 @@ public class Register extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
+        
+        JLabel title = new JLabel("CREATE ACCOUNT", SwingConstants.CENTER);
+        title.setBounds(0, 30, 450, 35);
+        title.setFont(new Font("Arial", Font.BOLD, 22));
+        add(title);
 
         setVisible(true);
     }

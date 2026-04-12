@@ -75,6 +75,18 @@ public class Login extends JFrame implements ActionListener {
                 new Register();
                 dispose();
             }
+            
+            public void mouseEntered(MouseEvent e) {
+                registerLink.setText("<html><u>Don't have an account yet? Click here to Register</u></html>");
+            }
+            public void mouseExited(MouseEvent e) {
+                registerLink.setText("Don't have an account yet? Click here to Register");
+            }
+        });
+        add(registerLink);
+
+        setVisible(true);
+    }
 
         
 

@@ -88,5 +88,35 @@ public class Login extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b1) {
+            String user = tf1.getText();
+            String pass = new String(pf1.getPassword());
+
+            try {
+                Connection con = connectionDB.getConnection();
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE username=? AND password=?");
+                ps.setString(1, user);
+                ps.setString(2, pass);
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(this, "Login Successful!");
+                    new Dashboard(user);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid username or password!");
+                }
+                con.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new Login();
+    }
+}
         
 

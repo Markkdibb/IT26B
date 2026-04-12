@@ -28,7 +28,7 @@ Dashboard(String user) {
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setResizable(false);
+        setResizable(true);
 
         
         navBar = new JPanel(new BorderLayout());
@@ -39,12 +39,12 @@ Dashboard(String user) {
         JPanel leftNav = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
         leftNav.setOpaque(false);
 
-        btnHome = new JButton("🏠 Home");
+        btnHome = new JButton("Home");
         styleNavButton(btnHome);
         btnHome.addActionListener(this);
         leftNav.add(btnHome);
 
-        btnAbout = new JButton("ℹ About");
+        btnAbout = new JButton("About");
         styleNavButton(btnAbout);
         btnAbout.addActionListener(this);
         leftNav.add(btnAbout);
@@ -53,7 +53,7 @@ Dashboard(String user) {
         JPanel rightNav = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         rightNav.setOpaque(false);
 
-        btnProfile = new JButton("👤 " + currentUser);
+        btnProfile = new JButton(currentUser);
         styleNavButton(btnProfile);
         btnProfile.addActionListener(this);
         rightNav.add(btnProfile);

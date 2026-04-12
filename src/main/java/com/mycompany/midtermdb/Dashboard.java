@@ -199,10 +199,75 @@ Dashboard(String user) {
     btnLogout.setFocusPainted(false);
     btnLogout.setCursor(new Cursor(Cursor.HAND_CURSOR));
     profilePanel.add(btnLogout);
+    
+    btnUpdate.addActionListener(ev -> {
+        String newUser = tf1.getText().trim();
+        String newPass = new String(pf1.getPassword()).trim();
+        if (newUser.isEmpty()) { JOptionPane.showMessageDialog(this, "Username cannot be empty."); return; }
+        try {
+            Connection con = connectionDB.getConnection();
+            PreparedStatement ps;
+            if (newPass.isEmpty()) {
+                ps = con.prepareStatement("UPDATE users SET username=? WHERE id=?");
+                ps.setString(1, newUser);
+                ps.setInt(2, selectedId[0]);
+            } else {
+                ps = con.prepareStatement("UPDATE users SET username=?, password=? WHERE id=?");
+                ps.setString(1, newUser);
+                ps.setString(2, newPass);
+                ps.setInt(3, selectedId[0]);
+            }
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Account updated!");
+            currentUser = newUser;
+            btnProfile.setText("👤 " + currentUser);
+            con.close();
+            showProfile();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    });
+
+    btnDelete.addActionListener(ev -> {
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete your account?");
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                Connection con = connectionDB.getConnection();
+                PreparedStatement ps = con.prepareStatement("DELETE FROM users WHERE id=?");
+                ps.setInt(1, selectedId[0]);
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Account deleted.");
+                con.close();
+                new Login();
+                dispose();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+    });
+
+    btnLogout.addActionListener(ev -> {
+        int confirm = JOptionPane.showConfirmDialog(this, "Logout?");
+        if (confirm == JOptionPane.YES_OPTION) {
+            new Login();
+            dispose();
+        }
+    });
+
+    contentPanel.add(profilePanel, BorderLayout.CENTER);
+    contentPanel.revalidate();
+    contentPanel.repaint();
+}
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnHome) showHome();
+        if (e.getSource() == btnAbout) showAbout();
+        if (e.getSource() == btnProfile) showProfile();
+    }
+}
 
 
     
-}
+
 
 
 

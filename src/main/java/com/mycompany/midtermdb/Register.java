@@ -45,6 +45,14 @@ public class Register extends JFrame {
         pf1.setBounds(80, 195, 280, 35);
         pf1.setFont(new Font("Arial", Font.PLAIN, 13));
         add(pf1);
+        
+        JButton b1 = new JButton("REGISTER");
+        b1.setBounds(80, 250, 280, 40);
+        b1.setBackground(new Color(70, 130, 180));
+        b1.setForeground(Color.WHITE);
+        b1.setFocusPainted(false);
+        b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        add(b1);
 
         setVisible(true);
     }

@@ -64,6 +64,12 @@ public class Register extends JFrame {
                 new Login();
                 dispose();
                 }
+            public void mouseEntered(MouseEvent e) {
+                loginLink.setText("<html><u>Already have an account? Click here to Login</u></html>");
+            }
+            public void mouseExited(MouseEvent e) {
+                loginLink.setText("Already have an account? Click here to Login");
+            }
     });
     add(loginLink);
 

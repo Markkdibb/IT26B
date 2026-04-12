@@ -79,6 +79,46 @@ Dashboard(String user) {
         btn.setFocusPainted(false);
         btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
+    
+    void showHome() {
+        contentPanel.removeAll();
+
+        JLabel lbl = new JLabel("Welcome, " + currentUser + "!", SwingConstants.CENTER);
+        lbl.setFont(new Font("Arial", Font.BOLD, 24));
+        lbl.setForeground(new Color(70, 130, 180));
+        contentPanel.add(lbl, BorderLayout.CENTER);
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }
+    
+    void showAbout() {
+        contentPanel.removeAll();
+
+        JPanel aboutPanel = new JPanel(new GridBagLayout());
+        aboutPanel.setBackground(Color.WHITE);
+
+        JLabel title = new JLabel("About This App", SwingConstants.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 20));
+        title.setForeground(new Color(70, 130, 180));
+        JLabel desc = new JLabel("<html><div style='text-align:center;'>"
+                + "This is a simple Java Desktop Application<br>"
+                + "built using JFrame and MySQL database.<br><br>"
+                + "Features: Register, Login, and CRUD operations."
+                + "</div></html>", SwingConstants.CENTER);
+        desc.setFont(new Font("Arial", Font.PLAIN, 13));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0; gbc.gridy = 0; gbc.insets = new Insets(10, 10, 10, 10);
+        aboutPanel.add(title, gbc);
+        gbc.gridy = 1;
+        aboutPanel.add(desc, gbc);
+        contentPanel.add(aboutPanel, BorderLayout.CENTER);
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }
+
+    
+}
+
 
 
 

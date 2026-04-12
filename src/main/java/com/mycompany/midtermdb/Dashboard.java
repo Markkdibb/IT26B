@@ -115,6 +115,35 @@ Dashboard(String user) {
         contentPanel.revalidate();
         contentPanel.repaint();
     }
+    
+    void showProfile() {
+    contentPanel.removeAll();
+
+    JPanel profilePanel = new JPanel(null);
+    profilePanel.setBackground(Color.WHITE);
+
+    JLabel title = new JLabel("My Account", SwingConstants.CENTER);
+    title.setBounds(0, 20, 700, 30);
+    title.setFont(new Font("Arial", Font.BOLD, 18));
+    title.setForeground(new Color(70, 130, 180));
+    profilePanel.add(title);
+    
+    final int[] selectedId = {-1};
+    final String[] createdAt = {""};
+    try {
+        Connection con = connectionDB.getConnection();
+        PreparedStatement ps = con.prepareStatement("SELECT id, created_at FROM users WHERE username=?");
+        ps.setString(1, currentUser);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            selectedId[0] = rs.getInt(1);
+            createdAt[0] = rs.getString(2);
+        }
+        con.close();
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage());
+    }
+
 
     
 }

@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-public class Register extends JFrame {
+public class Register extends JFrame implements ActionListener{
     
     JLabel l1, l2;
     JTextField tf1;

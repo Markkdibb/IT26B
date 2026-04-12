@@ -53,4 +53,16 @@ public class Login extends JFrame implements ActionListener {
         pf1.setFont(new Font("Arial", Font.PLAIN, 13));
         add(pf1);
         
+    //Tuplokanan 
+    
+    b1 = new JButton("LOGIN");
+        b1.setBounds(80, 250, 280, 40);
+        b1.setFont(new Font("Arial", Font.BOLD, 14));
+        b1.setBackground(new Color(70, 130, 180));
+        b1.setForeground(Color.WHITE);
+        b1.setFocusPainted(false);
+        b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        b1.addActionListener(this);
+        add(b1);
+        
 

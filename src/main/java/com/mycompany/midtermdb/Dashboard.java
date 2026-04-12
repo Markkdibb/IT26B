@@ -71,4 +71,15 @@ Dashboard(String user) {
         setVisible(true);
     }
 
+    void styleNavButton(JButton btn) {
+        btn.setFont(new Font("Arial", Font.PLAIN, 13));
+        btn.setForeground(Color.WHITE);
+        btn.setBackground(new Color(70, 130, 180));
+        btn.setBorderPainted(false);
+        btn.setFocusPainted(false);
+        btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }
+
+
+
 

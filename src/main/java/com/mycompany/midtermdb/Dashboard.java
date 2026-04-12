@@ -153,6 +153,52 @@ Dashboard(String user) {
     lblCreated.setBounds(200, 110, 300, 25);
     lblCreated.setFont(new Font("Arial", Font.PLAIN, 13));
     profilePanel.add(lblCreated);
+    
+    JSeparator sep = new JSeparator();
+    sep.setBounds(30, 150, 630, 10);
+    profilePanel.add(sep);
+
+    JLabel l1 = new JLabel("New Username:");
+    l1.setBounds(150, 170, 110, 25);
+    l1.setFont(new Font("Arial", Font.PLAIN, 12));
+    profilePanel.add(l1);
+
+    JTextField tf1 = new JTextField();
+    tf1.setBounds(270, 170, 200, 28);
+    profilePanel.add(tf1);
+
+    JLabel l2 = new JLabel("New Password:");
+    l2.setBounds(150, 210, 110, 25);
+    l2.setFont(new Font("Arial", Font.PLAIN, 12));
+    profilePanel.add(l2);
+
+    JPasswordField pf1 = new JPasswordField();
+    pf1.setBounds(270, 210, 200, 28);
+    profilePanel.add(pf1);
+
+    JButton btnUpdate = new JButton("Update");
+    btnUpdate.setBounds(150, 265, 120, 35);
+    btnUpdate.setBackground(new Color(70, 130, 180));
+    btnUpdate.setForeground(Color.WHITE);
+    btnUpdate.setFocusPainted(false);
+    btnUpdate.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    profilePanel.add(btnUpdate);
+
+    JButton btnDelete = new JButton("Delete Account");
+    btnDelete.setBounds(285, 265, 150, 35);
+    btnDelete.setBackground(new Color(200, 60, 60));
+    btnDelete.setForeground(Color.WHITE);
+    btnDelete.setFocusPainted(false);
+    btnDelete.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    profilePanel.add(btnDelete);
+
+    JButton btnLogout = new JButton("Logout");
+    btnLogout.setBounds(150, 320, 285, 35);
+    btnLogout.setBackground(new Color(100, 100, 100));
+    btnLogout.setForeground(Color.WHITE);
+    btnLogout.setFocusPainted(false);
+    btnLogout.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    profilePanel.add(btnLogout);
 
 
     

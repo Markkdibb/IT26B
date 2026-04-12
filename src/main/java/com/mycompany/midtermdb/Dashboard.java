@@ -28,7 +28,7 @@ public class Dashboard extends JFrame implements ActionListener {
 
     Dashboard(String user) {
         currentUser = user;
-        setTitle("ComShop System");
+        setTitle("Mikko's ComShop");
         setSize(750, 530);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -47,9 +47,16 @@ public class Dashboard extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
 
-        
-        JPanel navBar = new JPanel(new BorderLayout());
-        navBar.setBackground(new Color(30, 30, 30));
+        JPanel navBar = new JPanel(new BorderLayout()) {
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                GradientPaint gp = new GradientPaint(0, 0, new Color(63, 94, 251), getWidth(), 0, new Color(252, 70, 107));
+                g2d.setPaint(gp);
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+            }
+        };
         navBar.setPreferredSize(new Dimension(750, 50));
 
         JPanel leftNav = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
@@ -86,19 +93,19 @@ public class Dashboard extends JFrame implements ActionListener {
         navBar.add(leftNav, BorderLayout.WEST);
         navBar.add(rightNav, BorderLayout.EAST);
         add(navBar, BorderLayout.NORTH);
-
         contentPanel = new JPanel(new BorderLayout());
-        contentPanel.setBackground(Color.WHITE);
+        contentPanel.setBackground(new Color(248, 249, 255));
         add(contentPanel, BorderLayout.CENTER);
 
         showHome();
         setVisible(true);
     }
 
-    void styleNav(JButton btn) {
-        btn.setFont(new Font("Arial", Font.PLAIN, 12));
+        void styleNav(JButton btn) {
+        btn.setFont(new Font("Arial", Font.BOLD, 12));
         btn.setForeground(Color.WHITE);
-        btn.setBackground(new Color(30, 30, 30));
+        btn.setOpaque(false);
+        btn.setContentAreaFilled(false);
         btn.setBorderPainted(false);
         btn.setFocusPainted(false);
         btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -113,7 +120,7 @@ public class Dashboard extends JFrame implements ActionListener {
         JLabel title = new JLabel("Dashboard", SwingConstants.CENTER);
         title.setBounds(0, 15, 750, 30);
         title.setFont(new Font("Arial", Font.BOLD, 20));
-        title.setForeground(new Color(30, 30, 30));
+        title.setForeground(new Color(63, 94, 251));
         panel.add(title);
 
         JLabel sessionInfo = new JLabel("", SwingConstants.CENTER);
@@ -227,7 +234,7 @@ public class Dashboard extends JFrame implements ActionListener {
         JLabel title = new JLabel("My Sessions", SwingConstants.CENTER);
         title.setBounds(0, 15, 750, 30);
         title.setFont(new Font("Arial", Font.BOLD, 18));
-        title.setForeground(new Color(30, 30, 30));
+        title.setForeground(new Color(63, 94, 251));
         panel.add(title);
 
        
@@ -382,7 +389,7 @@ public class Dashboard extends JFrame implements ActionListener {
         JLabel title = new JLabel("Membership", SwingConstants.CENTER);
         title.setBounds(0, 15, 750, 30);
         title.setFont(new Font("Arial", Font.BOLD, 18));
-        title.setForeground(new Color(30, 30, 30));
+        title.setForeground(new Color(63, 94, 251));
         panel.add(title);
 
         JLabel typeLabel = new JLabel("Type: None", SwingConstants.CENTER);
@@ -533,7 +540,7 @@ public class Dashboard extends JFrame implements ActionListener {
         JLabel title = new JLabel("My Account", SwingConstants.CENTER);
         title.setBounds(0, 20, 750, 30);
         title.setFont(new Font("Arial", Font.BOLD, 18));
-        title.setForeground(new Color(30, 30, 30));
+        title.setForeground(new Color(63, 94, 251));
         panel.add(title);
 
         final int[] selectedId = {-1};

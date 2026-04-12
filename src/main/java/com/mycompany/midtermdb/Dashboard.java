@@ -20,4 +20,55 @@ public class Dashboard extends JFrame implements ActionListener {
     JPanel mainPanel, navBar, contentPanel;
     JButton btnHome, btnAbout, btnProfile;
     JLabel contentLabel;
+    
+Dashboard(String user) {
+        currentUser = user;
+        setTitle("Dashboard");
+        setSize(700, 500);
+        setLayout(new BorderLayout());
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
+
+        
+        navBar = new JPanel(new BorderLayout());
+        navBar.setBackground(new Color(70, 130, 180));
+        navBar.setPreferredSize(new Dimension(700, 50));
+
+       
+        JPanel leftNav = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        leftNav.setOpaque(false);
+
+        btnHome = new JButton("🏠 Home");
+        styleNavButton(btnHome);
+        btnHome.addActionListener(this);
+        leftNav.add(btnHome);
+
+        btnAbout = new JButton("ℹ About");
+        styleNavButton(btnAbout);
+        btnAbout.addActionListener(this);
+        leftNav.add(btnAbout);
+
+        
+        JPanel rightNav = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+        rightNav.setOpaque(false);
+
+        btnProfile = new JButton("👤 " + currentUser);
+        styleNavButton(btnProfile);
+        btnProfile.addActionListener(this);
+        rightNav.add(btnProfile);
+
+        navBar.add(leftNav, BorderLayout.WEST);
+        navBar.add(rightNav, BorderLayout.EAST);
+        add(navBar, BorderLayout.NORTH);
+
+        
+        contentPanel = new JPanel(new BorderLayout());
+        contentPanel.setBackground(Color.WHITE);
+        showHome();
+        add(contentPanel, BorderLayout.CENTER);
+
+        setVisible(true);
+    }
+
 

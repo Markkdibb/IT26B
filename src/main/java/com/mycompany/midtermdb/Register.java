@@ -25,6 +25,26 @@ public class Register extends JFrame {
         title.setBounds(0, 30, 450, 35);
         title.setFont(new Font("Arial", Font.BOLD, 22));
         add(title);
+        
+        l1 = new JLabel("Username:");
+        l1.setBounds(80, 100, 100, 25);
+        l1.setFont(new Font("Arial", Font.PLAIN, 13));
+        add(l1);
+
+        tf1 = new JTextField();
+        tf1.setBounds(80, 125, 280, 35);
+        tf1.setFont(new Font("Arial", Font.PLAIN, 13));
+        add(tf1);
+        
+        l2 = new JLabel("Password:");
+        l2.setBounds(80, 170, 100, 25);
+        l2.setFont(new Font("Arial", Font.PLAIN, 13));
+        add(l2);
+
+        pf1 = new JPasswordField();
+        pf1.setBounds(80, 195, 280, 35);
+        pf1.setFont(new Font("Arial", Font.PLAIN, 13));
+        add(pf1);
 
         setVisible(true);
     }

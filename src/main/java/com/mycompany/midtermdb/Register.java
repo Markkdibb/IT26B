@@ -11,11 +11,16 @@ package com.mycompany.midtermdb;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 
 public class Register extends JFrame {
     
-    Jbutton b1;
-
+    JLabel l1, l2;
+    JTextField tf1;
+    JPasswordField pf1;
+    JButton b1;
+    JLabel loginLink;
+    
     Register() {
         setTitle("Register");
         setSize(450, 380);
@@ -49,8 +54,9 @@ public class Register extends JFrame {
         pf1.setFont(new Font("Arial", Font.PLAIN, 13));
         add(pf1);
         
-        JButton b1 = new JButton("REGISTER");
+        b1 = new JButton("REGISTER");
         b1.setBounds(80, 250, 280, 40);
+        b1.setFont(new Font("Arial", Font.BOLD, 14));
         b1.setBackground(new Color(70, 130, 180));
         b1.setForeground(Color.WHITE);
         b1.setFocusPainted(false);
@@ -67,7 +73,7 @@ public class Register extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 new Login();
                 dispose();
-                }
+            }
             public void mouseEntered(MouseEvent e) {
                 loginLink.setText("<html><u>Already have an account? Click here to Login</u></html>");
             }
@@ -75,7 +81,7 @@ public class Register extends JFrame {
                 loginLink.setText("Already have an account? Click here to Login");
             }
     });
-    add(loginLink);
+        add(loginLink);
 
         setVisible(true);
     }
@@ -83,6 +89,26 @@ public class Register extends JFrame {
         if (e.getSource() == b1) {
             String user = tf1.getText().trim();
             String pass = new String(pf1.getPassword()).trim();
+            
+            if (user.isEmpty() || pass.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+                return;
         }
+            
+            try {
+                Connection con = connectionDB.getConnection();
+                PreparedStatement ps = con.prepareStatement("INSERT INTO users (username, password) VALUES (?,?)");
+                ps.setString(1, user);
+                ps.setString(2, pass);
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Registered successfully!");
+                new Login();
+                dispose();
+                con.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+
     }
 }

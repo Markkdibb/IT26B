@@ -65,4 +65,16 @@ public class Login extends JFrame implements ActionListener {
         b1.addActionListener(this);
         add(b1);
         
+    registerLink = new JLabel("Don't have an account yet? Click here to Register", SwingConstants.CENTER);
+        registerLink.setBounds(0, 300, 450, 25);
+        registerLink.setFont(new Font("Arial", Font.PLAIN, 12));
+        registerLink.setForeground(new Color(70, 130, 180));
+        registerLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        registerLink.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                new Register();
+                dispose();
+            }
+
+        
 

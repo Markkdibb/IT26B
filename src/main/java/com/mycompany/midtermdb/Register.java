@@ -10,8 +10,11 @@ package com.mycompany.midtermdb;
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class Register extends JFrame {
+    
+    Jbutton b1;
 
     Register() {
         setTitle("Register");
@@ -52,6 +55,7 @@ public class Register extends JFrame {
         b1.setForeground(Color.WHITE);
         b1.setFocusPainted(false);
         b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        b1.addActionListener(this);
         add(b1);
         
         loginLink = new JLabel("Already have an account? Click here to Login", SwingConstants.CENTER);
@@ -74,5 +78,11 @@ public class Register extends JFrame {
     add(loginLink);
 
         setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b1) {
+            String user = tf1.getText().trim();
+            String pass = new String(pf1.getPassword()).trim();
+        }
     }
 }

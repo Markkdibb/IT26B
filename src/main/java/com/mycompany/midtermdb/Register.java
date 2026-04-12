@@ -53,6 +53,19 @@ public class Register extends JFrame {
         b1.setFocusPainted(false);
         b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(b1);
+        
+        loginLink = new JLabel("Already have an account? Click here to Login", SwingConstants.CENTER);
+        loginLink.setBounds(0, 315, 450, 25);
+        loginLink.setFont(new Font("Arial", Font.PLAIN, 12));
+        loginLink.setForeground(new Color(70, 130, 180));
+        loginLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        loginLink.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                new Login();
+                dispose();
+                }
+    });
+    add(loginLink);
 
         setVisible(true);
     }

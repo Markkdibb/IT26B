@@ -143,6 +143,16 @@ Dashboard(String user) {
     } catch (Exception ex) {
         JOptionPane.showMessageDialog(this, ex.getMessage());
     }
+    
+    JLabel lblUsername = new JLabel("Username:  " + currentUser);
+    lblUsername.setBounds(200, 80, 300, 25);
+    lblUsername.setFont(new Font("Arial", Font.PLAIN, 13));
+    profilePanel.add(lblUsername);
+
+    JLabel lblCreated = new JLabel("Member since:  " + createdAt[0]);
+    lblCreated.setBounds(200, 110, 300, 25);
+    lblCreated.setFont(new Font("Arial", Font.PLAIN, 13));
+    profilePanel.add(lblCreated);
 
 
     

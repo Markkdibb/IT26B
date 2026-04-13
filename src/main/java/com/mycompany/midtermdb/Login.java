@@ -58,7 +58,7 @@ public class Login extends JFrame implements ActionListener {
     b1 = new JButton("LOGIN");
         b1.setBounds(80, 250, 280, 40);
         b1.setFont(new Font("Arial", Font.BOLD, 14));
-        b1.setBackground(new Color(70, 130, 180));
+        b1.setBackground(new Color(63, 94, 251));
         b1.setForeground(Color.WHITE);
         b1.setFocusPainted(false);
         b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -68,7 +68,7 @@ public class Login extends JFrame implements ActionListener {
     registerLink = new JLabel("Don't have an account yet? Click here to Register", SwingConstants.CENTER);
         registerLink.setBounds(0, 300, 450, 25);
         registerLink.setFont(new Font("Arial", Font.PLAIN, 12));
-        registerLink.setForeground(new Color(70, 130, 180));
+        registerLink.setForeground(new Color(63, 94, 251));
         registerLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
         registerLink.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {

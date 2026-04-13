@@ -57,7 +57,7 @@ public class Register extends JFrame implements ActionListener{
         b1 = new JButton("REGISTER");
         b1.setBounds(80, 250, 280, 40);
         b1.setFont(new Font("Arial", Font.BOLD, 14));
-        b1.setBackground(new Color(70, 130, 180));
+        b1.setBackground(new Color(63, 94, 251));
         b1.setForeground(Color.WHITE);
         b1.setFocusPainted(false);
         b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -67,7 +67,7 @@ public class Register extends JFrame implements ActionListener{
         loginLink = new JLabel("Already have an account? Click here to Login", SwingConstants.CENTER);
         loginLink.setBounds(0, 315, 450, 25);
         loginLink.setFont(new Font("Arial", Font.PLAIN, 12));
-        loginLink.setForeground(new Color(70, 130, 180));
+        loginLink.setForeground(new Color(63, 94, 251));
         loginLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
         loginLink.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {

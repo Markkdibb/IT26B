@@ -28,7 +28,7 @@ public class Login extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
-    JLabel title = new JLabel("Mikko Bayot", SwingConstants.CENTER);
+    JLabel title = new JLabel("Mikko's ComShop", SwingConstants.CENTER);
         title.setBounds(0, 30, 450, 35);
         title.setFont(new Font("Arial", Font.BOLD, 22));
         add(title);
